@@ -1,0 +1,11 @@
+language: generic
+sudo: required
+services: 
+ - docker
+
+before_install:
+ - docerk build -t g1git/docker-react -f Dockerfile.dev .
+
+script:
+ - docker run -e CI=true g1git/docker-react npm run test
+
